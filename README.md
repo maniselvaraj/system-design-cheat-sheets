@@ -2,7 +2,7 @@
 
 System design cheat sheets - A collection of notes that I gathered while reading popular books.
 
-System Design Topics
+System Design Basics
 
 * [Replication](replication.md)
 * [Partitioning](partitioning.md)
