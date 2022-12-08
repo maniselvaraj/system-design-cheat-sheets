@@ -32,7 +32,7 @@
 </li> 
 </ul>
 
-<li>Strong consistency 
+<li>Strong consistency using:
 <ul>
  
 <li>2 phased commit
@@ -73,10 +73,10 @@
 
 <li>C in ACID is affected; Eventual consistency or loose consistency 
 
-<li>Multi-master and leaderless setup 
+<li>Multi-master and leaderless setup: 
 <ul>
  
-<li>Write conflict
+<li>could lead to Write conflict
  
 <li>latency affected due to synchronization
 </li> 
@@ -86,7 +86,7 @@
 
 <li>No global transaction possible
 
-<li>Failover problems 
+<li>Failover could lead to: 
 <ul>
  
 <li>Stale data
@@ -123,7 +123,7 @@
 
 1. Read-after-write consistency (RAW)
     1. Read your writes to ensure your write is OK
-    2. Not for other users
+    2. Not for other users i.e., A writes and B cannot read
     3. Some techniques
         1. Always read from leader
         2. Read from leader for 1 minute
@@ -149,8 +149,8 @@
 * Single leader
 * Multi-master
 * Sync vs Async
-    * Sync: Non-blocking
-    * Async: Guaranteed. Blocking.
+    * Async: Non-blocking
+    * Sync: Guaranteed. Blocking.
 
 <table>
   <tr>
@@ -204,7 +204,7 @@
 
 
 
-### Solutions for Multi-master Write conflicts
+### Solutions for Multi-master write conflicts
 
 
 
