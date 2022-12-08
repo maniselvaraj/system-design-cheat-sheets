@@ -208,4 +208,4 @@ How is it achieved?
   </tr>
 </table>
 
-[Next (Consistency)](consistency.md)
+[Replication](replication.md) | [Partitioning](partitioning.md) | [Transactions](transaction.md) | [Isolation](isolation.md) | [Consistency](consistency.md) | [Distributed Transactions](distributed_transactions.md) | [Consensus](consensus.md)

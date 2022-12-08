@@ -223,4 +223,4 @@ Secondary key is used for search. It is harder to map multiple keys to a partiti
 * Request routing degrades to a worst case scenario of scatter/gather or fan out.
 
 
-[Next (Transactions)](transaction.md)
+[Replication](replication.md) | [Partitioning](partitioning.md) | [Transactions](transaction.md) | [Isolation](isolation.md) | [Consistency](consistency.md) | [Distributed Transactions](distributed_transactions.md) | [Consensus](consensus.md)

@@ -206,4 +206,4 @@
   </tr>
 </table>
 
-[Next (Consensus)](consensus.md)
+[Replication](replication.md) | [Partitioning](partitioning.md) | [Transactions](transaction.md) | [Isolation](isolation.md) | [Consistency](consistency.md) | [Distributed Transactions](distributed_transactions.md) | [Consensus](consensus.md)

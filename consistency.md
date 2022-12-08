@@ -150,4 +150,4 @@ Aim is to bring the nodes back up to date.
 
 
 
-[Next (Distributed Transactions)](distributed_transactions.md)
+[Replication](replication.md) | [Partitioning](partitioning.md) | [Transactions](transaction.md) | [Isolation](isolation.md) | [Consistency](consistency.md) | [Distributed Transactions](distributed_transactions.md) | [Consensus](consensus.md)
