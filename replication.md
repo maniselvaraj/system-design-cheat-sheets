@@ -278,3 +278,7 @@
 4. Version vector
     1. Version across replicas
     2. Version number per replica as well as per key
+
+
+
+[Next/Partitioning](partitioning.md)

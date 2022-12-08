@@ -221,3 +221,6 @@ Secondary key is used for search. It is harder to map multiple keys to a partiti
 * In practice, use coordination service like Zookeeper to keep cluster metadata. Zookeeper maintains mapping
 * Cassandra/Riak uses gossip protocol to share info
 * Request routing degrades to a worst case scenario of scatter/gather or fan out.
+
+
+[Next (Transactions)](transaction.md)
