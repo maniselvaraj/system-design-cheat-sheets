@@ -146,3 +146,8 @@ Aim is to bring the nodes back up to date.
 6. Gossip 
     1. Uses gossip protocol
     2. Cooperative propagation to disseminate information
+
+
+
+
+[Next (Distributed Transactions)](distributed_transactions.md)
