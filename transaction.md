@@ -10,9 +10,9 @@
 * Handles clients writing to DB at the same time
 * Handles race conditions between clients
 
-**BASE**: basically available, soft state, and eventual consistent
-
-**ACID**: Atomicity, Consistency, Isolation, Durability
+### BASE vs ACID
+* BASE: basically available, soft state, and eventual consistent.
+* ACID: Atomicity, Consistency, Isolation, Durability
 
 
 <table>
@@ -34,11 +34,8 @@
 <ul>
 
 <li>Should have been called abortability
-
-<li>Each txn is all or nothing
-
+<li>Each transaction is all or nothing
 <li>Steps are indivisible
-
 <li>Either commit or abort
 </li>
 </ul>
@@ -55,24 +52,18 @@ Techniques:
 <ul>
 
 <li>Being in a good state
-
-<li>Any txn will bring the DB from one valid state to another and not intermediate
-
+<li>Any transaction will bring the DB from one valid state to another and not intermediate
 <li>Application specific guarantee.
-
-<li>AID are properties of the DB
-
-<li>C is the property of application
+<li>AID of ACID are properties of the DB
+<li>C of ACID is the property of application
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Concurrency of Txn
-
-<li>2 txns concurrently has the same effect as executed serially - aka serialization
-
+<li>Concurrency of transactions
+<li>2 transactions concurrently has the same effect as executed serially - aka serialization
 <li>Defines when the changes to Db become visible and what changes may become visible
 </li>
 </ul>
@@ -82,8 +73,7 @@ Techniques:
 
 <li>No loss
 
-<li>Once Txn is committed, it will remain so
-
+<li>Once transaction is committed, it will remain so
 <li>Promise that data will not be forgotten
 </li>
 </ul>
