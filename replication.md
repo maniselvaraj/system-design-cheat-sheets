@@ -197,8 +197,6 @@
 
 ### Solutions for Multi-master write conflicts
 
-
-
 1. Use synchronous write - same as single master
 2. Avoid write conflict
     1. Use home datacenter for writes
@@ -224,7 +222,7 @@
 * No leader election needed
 * No failover needed. Write to many and read from many
 
-**General approaches/pointers for leaderless replication:**
+### General approaches/pointers for leaderless replication:
 
 
 1. Quorum
@@ -254,8 +252,7 @@
         1. Read repair. Ex: Client repairs bad data
         2. Anti-entropy process. Ex: background process copies missing data
 
-**How to handle leaderless write conflicts?**
-
+### Solutions for Leaderless write conflicts
 
 1. Use last write wins (LWW)
     1. Force natural order using UUID, timestamp, random. Pick the largest UUID.
