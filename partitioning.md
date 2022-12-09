@@ -72,9 +72,18 @@
    </td>
   </tr>
   <tr>
-   <td>Sorted keys for range query
+   <td>
+    <ul>
+    <li>Sorted keys for range query
+    </li>
+    </ul>
    </td>
-   <td>Hotspotting. Ex: timestamp. Unbalanced servers.
+   <td>
+    <ul>
+    <li>Hotspotting. Ex: timestamp. 
+    <li>Unbalanced servers.
+    </li>
+    </ul>
    </td>
   </tr>
 </table>
@@ -93,9 +102,12 @@
   <tr>
    <td>Better distribution
    </td>
-   <td>No range query.
-<p>
-Scatter gather.
+   <td>
+    <ul>
+    <li>No range query.
+    <li>Scatter gather.
+    </li>
+    </ul>
    </td>
   </tr>
 </table>
@@ -180,8 +192,7 @@ Scatter gather.
 
 ## Secondary Partition
 
-Primary key is used to uniquely identify a record
-Secondary key is used for search. It is harder to map multiple keys to a partition.
+Primary key is used to uniquely identify a record. Secondary key is used for search. It is harder to map multiple keys to a partition.
 
 ### Type of secondary partition
 
