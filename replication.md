@@ -14,16 +14,19 @@
 <ul>
 
 <li>Latency
-
+<ul>
+<li>Geolocated read (latency)
+</li> 
+</ul>
 <li>Availability
-
+<ul>
+<li>Failover is good for availability
+<li>2 datacenters (availability) 
+</li> 
+</ul>
 <li>Throughput
 
-<li>Geolocated read (latency)
-
-<li>2 datacenters (availability) 
-
-<li>Eventual consistency 
+<li>Eventual consistency in:
 <ul>
  
 <li>master/slave
@@ -34,16 +37,12 @@
 
 <li>Strong consistency using:
 <ul>
- 
 <li>2 phased commit
- 
 <li>Paxos
 </li> 
 </ul>
 
 <li>Single master is popular in financial institutions
-
-<li>Failover is good for availability
 
 <li>Async replication is good for latency and throughput
 </li>
