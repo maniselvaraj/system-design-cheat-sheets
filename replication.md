@@ -50,7 +50,7 @@
    <td rowspan="13" >
 <ul>
 
-<li>Replication lag affects mainly consistency 
+<li>Replication lag affects mainly "consistency" 
 <ul>
 <li>Replication lag = leader - follower
 <li>C in ACID is affected; Eventual consistency or loose consistency 
@@ -119,11 +119,11 @@
     2. Not for other users i.e., A writes and B cannot read
     3. Some techniques
         1. Always read from leader
-        2. Read from leader for 1 minute
+        2. Read from leader for some initial minutes i.e., 1 minute
         3. Client uses timestamp and so replica honors it
-2. Cross device RAW is harder
-    1. Ex: Google docs?
-    2. Solution?
+    4. Cross device RAW is harder
+        1. Ex: Google docs?
+        2. Solution?
 3. Monotonic Reads (MR)
     1. Read going backwards
     2. Strong consistency &lt; MR &lt; Eventual Consistency
@@ -171,11 +171,9 @@
 </li> 
 </ul>
 
-<li>Weak consistency. Suitable for VOIP, Video, Gaming
-
-<li>Eventual consistency. Suitable for search engine, Amazon S3
-
-<li>Strong consistency suitable for file system, RDBMS
+<li>Weak consistency: Suitable for VOIP, Video, Gaming
+<li>Eventual consistency: Suitable for search engine, Amazon S3
+<li>Strong consistency: Suitable for file system, RDBMS
 </li>
 </ul>
    </td>
@@ -226,34 +224,35 @@
 * No leader election needed
 * No failover needed. Write to many and read from many
 
-**General approaches/pointers for leaderless replication**
+**General approaches/pointers for leaderless replication:**
 
 
 1. Quorum
-    1. Write (W) to many nodes
-    2. Read (R)  from many nodes
-    3. Use version number
-    4. W +  R > N
-    5. W & R must overlap
-    6. N must be odd
-2. Need to monitor staleness
-    1. DB metrics in single or multi-master
-    2. Hard in leaderless environment
-3. Solutions for staleness
-    1. Read repair. Ex: Client repairs bad data
-    2. Anti-entropy process. Ex: background process copies missing data
-4. Cons of Quorum
-    1. If W and R do not overlap, it results in Sloppy Quorum
-    2. Concurrent write conflicts
-    3. Concurrent write and read conflicts
-    4. Failed write in some  W and not rolled back in some W
-    5. Quorum condition may break if the node in quorum goes down.
-5. Sloppy Quorum
+    1. W +  R > N
+        1. Write (W) to many nodes
+        2. Read (R)  from many nodes
+        3. Use version number
+        4. W & R must overlap
+        5. N must be odd
+    2. Cons of Quorum
+        1. If W and R do not overlap, it results in Sloppy Quorum
+        2. Concurrent write conflicts
+        3. Concurrent write and read conflicts
+        4. Failed write in some  W and not rolled back in some W
+        5. Quorum condition may break if the node in quorum goes down.
+3. Sloppy Quorum
     1. Not really a quorum 
     2. Writes go to W. But some nodes in W are not part of N home nodes
         1. Solution: Use hinted handoff after some nodes recover
     3. Good for write availability
     4. Assurance of durability
+4. Staleness
+    1. Need to monitor staleness
+        1. DB metrics in single or multi-master can be used to monitor
+        2. Hard in leaderless environment
+    2. Solutions for staleness
+        1. Read repair. Ex: Client repairs bad data
+        2. Anti-entropy process. Ex: background process copies missing data
 
 **How to handle leaderless write conflicts?**
 
