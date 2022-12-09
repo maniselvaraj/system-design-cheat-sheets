@@ -6,15 +6,14 @@
 ### Isolation of transactions is needed to address below anomalies:
 
 
-
 1. Read anomaly
-    1. Dirty read: read uncommitted txns from another write
+    1. Dirty read: read uncommitted transactions from another write
     2. Non-repeatable read (NRR): same query returns different results
     3. Phantom read: same as NRR, but for range query.
 2. Write anomaly
     1. Lost update: simultaneous update of same key/value
     2. Dirty write: uses uncommitted value to modify
-    3. Write skew: individual txn is good. But when combined goes bad
+    3. Write skew: individual transaction is good. But when combined goes bad
 
 
 ### Solutions for Lost Update problem
@@ -82,20 +81,20 @@
 
 
 
-## Isolation/Concurrency Levels
+## Isolation/Concurrency Levels & Approaches
 
 
 <table>
   <tr>
-   <td><strong>Weak Isolation</strong>
+   <td><strong>WEAK ISOLATION</strong>
    </td>
-   <td><strong>Strong Isolation</strong>
+   <td><strong>STRONG ISOLATION</strong>
    </td>
   </tr>
   <tr>
    <td>Non-serializable
    </td>
-   <td>Serializability (strongest)
+   <td>Serializability (strongest) aka transaction isolation
    </td>
   </tr>
   <tr>
@@ -136,9 +135,9 @@
    <td><strong>Snapshot Isolation (SI)</strong>
 <ul>
 
-<li>Based on snapshot before start of Txn
+<li>Based on snapshot before start of transaction
 
-<li>Txn is aborted if the value in the snapshot changes. Hence, no lost update
+<li>transaction is aborted if the value in the snapshot changes. Hence, no lost update
 
 <li>Write skew is possible as local is good, but global is bad
 
@@ -174,13 +173,9 @@ How is it achieved?
 <ul>
 
 <li>Read: shared mode lock
-
 <li>Write: exclusive lock
-
 <li>Phase 1: acquire lock
-
 <li>Phase 2: release lock
-
 <li>Cons: 2 PL is pessimistic. If anything goes wrong, then wait.
 </li>
 </ul>
@@ -201,7 +196,7 @@ How is it achieved?
 
 <li>Good for read heavy apps
 
-<li>Only Txns that executed serializably are committed
+<li>Only transactions that executed serializably are committed
 </li>
 </ul>
    </td>

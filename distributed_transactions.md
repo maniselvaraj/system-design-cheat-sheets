@@ -19,8 +19,7 @@
 
 
 ## Solutions for “A” in ACID
-
-
+A = All or nothing. Atomicity or abortability
 <table>
   <tr>
    <td colspan="2" ><strong>Two Atomic Commit Algorithms</strong>
@@ -51,32 +50,27 @@
    </td>
   </tr>
   <tr>
-   <td>Western marriage: I do from both is needed
+   <td>Similar to a Western marriage: "I do" from both is needed
    </td>
    <td>
    </td>
   </tr>
   <tr>
-   <td><strong>Sequence</strong>
+   <td><strong>Sequence:</strong>
 <ol>
 
-<li>Node proposes txn
-
-<li>Node gets TxnID from coordinator
-
+<li>Node proposes transaction
+<li>Node gets TransactionID from coordinator
 <li>Coordinator sends “prepare” to nodes. Nodes can reply with yes/no
-
 <li>Coordinator sends commit/abort to nodes
 </li>
 </ol>
    </td>
-   <td><strong>Sequence</strong>
+   <td><strong>Sequence:</strong>
 <ol>
 
 <li>Propose: propose and collect values. Coordinator failure is allowed
-
 <li>Prepare: share vote results
-
 <li>Commit/Abort
 </li>
 </ol>
@@ -103,11 +97,8 @@
 <ul>
 
 <li>Coordinator failure is blocking as nodes will not know what to do
-
 <li>Hence, 2 PC is blocking due to coordinator failure
-
-<li>May need server reboot and manual abort of Txns
-
+<li>May need server reboot and manual abort of transactions
 <li>N/W round trip cost
 </li>
 </ul>
@@ -115,10 +106,8 @@
    <td><strong>Cons</strong>
 <ul>
 
-<li>In N/W partition some will abort and will will commit resulting in split brain
-
+<li>In N/W partition some will abort and some will commit resulting in split brain
 <li>More message overhead than 2PC
-
 <li>N/W round trip cost
 </li>
 </ul>
@@ -154,9 +143,7 @@
 
 ## Distributed Transactions in Application level: SAGAS
 
-
-
-* Application level distributed transaction
+* SAGAS is application level distributed transaction
 * Only supports A,C, and D. No concurrency
 * Sequence of local transactions coordinated by async messages
 * SAGA = T1 + T2 + T3  …Tn  //upon failure abort all

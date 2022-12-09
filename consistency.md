@@ -19,11 +19,8 @@
 <ul>
 
 <li>State of replicas
-
 <li>State as if there is only 1 replica
-
 <li>Ex: 2 phase commit to achieve this
-
 <li>More of a consensus concept
 </li>
 </ul>
@@ -32,9 +29,7 @@
 <ul>
 
 <li>Transaction isolation
-
 <li>Ex: 2 phased lock to achieve this
-
 <li>Serializable snapshot isolation
 </li>
 </ul>
@@ -47,7 +42,6 @@
 ## Consistency Models
 
 (Sorted by strongest to weakest)
-
 
 
 1. Linearizability
@@ -79,8 +73,7 @@
 ## Linearizability Deep Dive
 
 
-
-* One replica effect
+* Linearizability = One replica effect
 * Atomic consistency
 * Strong consistency
 * Immediate consistency
@@ -116,7 +109,7 @@
 * Concurrent operations are incomparable. So causality is partial order
 * Causality is hard. So use sequence number of timestamp
 * Sequence number ordering
-    * Prefenerate blocks
+    * Pregenerate blocks
     * odd/even combo
     * Attach timestamps (LWW)
     * Lamport timestamp
