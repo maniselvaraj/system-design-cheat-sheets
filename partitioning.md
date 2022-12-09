@@ -14,15 +14,22 @@
    <td>
 <ul>
 
-<li>Scalability, availability, and performance
+<li>Availability, Performance, and Scalability
 
 <li>Better availability when combined with replication
-
-<li>Performance: Read less, write less, replicate less. More cache hits resulting in better performance
-
-<li>Performance: Reduced index size = faster query time
-
-<li>Scalability: More throughput due to faster writes 
+<li>Performance
+    <ul>
+        <li>Read less, write less, replicate less. 
+        <li>More cache hits resulting in better performance
+        <li>Reduced index size = faster query time
+        </li>
+    </ul>
+<li>Scalability 
+    <ul>
+        <li>More throughput due to faster writes 
+        <li>Horizontal scalability is cheaper
+        </li>
+    </ul>
 </li>
 </ul>
    </td>
@@ -30,13 +37,9 @@
 <ul>
 
 <li>Complex joins
-
-<li>Referential integrity is broken (constraints, foreign key)
-
-<li>Rebalancing is costly
-
 <li>Complex application logic in terms of queries and scatter/gather
-
+<li>Referential integrity is broken (constraints, foreign key)
+<li>Rebalancing is costly
 <li>Hot spotting
 </li>
 </ul>
@@ -71,7 +74,7 @@
   <tr>
    <td>Sorted keys for range query
    </td>
-   <td>Hotspotting. Ex: timestamp
+   <td>Hotspotting. Ex: timestamp. Unbalanced servers.
    </td>
   </tr>
 </table>
@@ -112,9 +115,7 @@ Scatter gather.
 
 
 
-### Criteria for selecting a partitioning approach
-
-
+### Partitioning Criteria
 
 * Tenant
 * Geo
@@ -136,51 +137,6 @@ Scatter gather.
     * Results in scatter-gather
     * Extra bookkeeping is needed as random number is needed for celebrity alone
 
-
-## Secondary Partition
-
-Primary key is used to uniquely identify a record
-
-Secondary key is used for search. It is harder to map multiple keys to a partition.
-
-
-### Type of secondary partition
-
-
-<table>
-  <tr>
-   <td>Document based 
-   </td>
-   <td>Term based
-   </td>
-  </tr>
-  <tr>
-   <td>
-<ul>
-
-<li>Each partition has its own local index
-
-<li><strong>Pro</strong>: only need to update the partition that contains the ID
-
-<li><strong>Con</strong>: scatter-gather
-</li>
-</ul>
-   </td>
-   <td>
-<ul>
-
-<li>Global index covering all parts
-
-<li>Term-partitioned
-
-<li><strong>Pro</strong>: fast read
-
-<li><strong>Con</strong>: slow write
-</li>
-</ul>
-   </td>
-  </tr>
-</table>
 
 
 
@@ -221,6 +177,43 @@ Secondary key is used for search. It is harder to map multiple keys to a partiti
 * In practice, use coordination service like Zookeeper to keep cluster metadata. Zookeeper maintains mapping
 * Cassandra/Riak uses gossip protocol to share info
 * Request routing degrades to a worst case scenario of scatter/gather or fan out.
+
+## Secondary Partition
+
+Primary key is used to uniquely identify a record
+Secondary key is used for search. It is harder to map multiple keys to a partition.
+
+### Type of secondary partition
+
+<table>
+  <tr>
+   <td>Document based 
+   </td>
+   <td>Term based
+   </td>
+  </tr>
+  <tr>
+   <td>
+<ul>
+
+<li>Each partition has its own local index
+<li><strong>Pro</strong>: only need to update the partition that contains the ID
+<li><strong>Con</strong>: scatter-gather
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+<li>Global index covering all parts
+<li>Term-partitioned
+<li><strong>Pro</strong>: fast read
+<li><strong>Con</strong>: slow write
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
 
 
 [Replication](replication.md) | [Partitioning](partitioning.md) | [Transactions](transaction.md) | [Isolation](isolation.md) | [Consistency](consistency.md) | [Distributed Transactions](distributed_transactions.md) | [Consensus](consensus.md)
