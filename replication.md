@@ -25,7 +25,7 @@
 </li> 
 </ul>
 <li>Throughput
-
+<li>Async replication is good for latency and throughput
 <li>Eventual consistency in:
 <ul>
  
@@ -44,7 +44,6 @@
 
 <li>Single master is popular in financial institutions
 
-<li>Async replication is good for latency and throughput
 </li>
 </ul>
    </td>
@@ -53,37 +52,32 @@
 
 <li>Replication lag affects mainly consistency 
 <ul>
- 
 <li>Replication lag = leader - follower
+<li>C in ACID is affected; Eventual consistency or loose consistency 
 </li> 
 </ul>
 
-<li>(Single master) mostly async replication - so potential data loss
-
-<li>(Single master) inconsistent data upon failure
 
 <li>Write heavy apps will bog down slaves
-
 <li>Read heavy apps require more slaves resulting in more replication lag
+<li>Latency and availability are hit if synchronous replication is used
+<li>Need for serialization, ordering, timestamp
+<li>No global transaction possible
 
-<li>latency and availability are hit if synchronous replication is used
-
-<li>multi-master setup needs more hardware like loadbalancer
-
-<li>C in ACID is affected; Eventual consistency or loose consistency 
-
+<li>Single Master
+    <ul>
+        <li>mostly async replication - so potential data loss
+        <li>inconsistent data upon failure
+        </li>
+    </ul>
 <li>Multi-master and leaderless setup: 
 <ul>
- 
-<li>could lead to Write conflict
- 
-<li>latency affected due to synchronization
+ <li>Could lead to Write conflict
+<li>Latency affected due to synchronization
+<li>Multi-master setup needs more hardware like loadbalancer
 </li> 
 </ul>
 
-<li>Need for serialization, ordering, timestamp
-
-<li>No global transaction possible
 
 <li>Failover could lead to: 
 <ul>
