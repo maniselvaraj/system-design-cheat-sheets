@@ -13,6 +13,9 @@ System Design Basics
 * [Consensus](consensus.md)
 
 
+System Design Concepts
+* [SQL vs NoSQL](sql_vs_nosql.md)
+
 
 Other resources
 
