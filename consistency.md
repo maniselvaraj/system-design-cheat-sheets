@@ -18,10 +18,9 @@
    <td>
 <ul>
 
-<li>State of replicas
-<li>State as if there is only 1 replica
+<li>State of replicas as if there is only 1 replica
 <li>Ex: 2 phase commit to achieve this
-<li>More of a consensus concept
+<li>More of a consistency/consensus concept
 </li>
 </ul>
    </td>
@@ -30,6 +29,7 @@
 
 <li>Transaction isolation
 <li>Ex: 2 phased lock to achieve this
+<li>More of an isolation/atomicity concept
 <li>Serializable snapshot isolation
 </li>
 </ul>
