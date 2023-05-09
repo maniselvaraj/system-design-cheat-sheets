@@ -12,9 +12,9 @@
     1. Read commit needs locks
     2. 2 phase commit needs to lock all the time
 2. Coordinator failure
-    3. Coordinator is itself a DB
-    4. Single point of failure if not replicated
-    5. Stateless apps become stateful due to coordinator
+    1. Coordinator is itself a DB
+    2. Single point of failure if not replicated
+    3. Stateless apps become stateful due to coordinator
 3. 2 phase commit / 3 phase commit needs additional network roundtrip
 
 
