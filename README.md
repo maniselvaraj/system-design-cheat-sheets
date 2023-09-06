@@ -15,6 +15,7 @@ System Design Basics
 
 System Design Concepts
 * [SQL vs NoSQL](sql_vs_nosql.md)
+* [Sync vs Asyn Communication](service_communication.md)
 
 
 Other resources
