@@ -1,5 +1,5 @@
 
-#How to approach a System Design Problem?
+# How to approach a System Design Problem?
 
 
 1. Be curious and question the ask like an end user (or admin)
