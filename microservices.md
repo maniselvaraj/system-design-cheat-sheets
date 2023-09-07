@@ -37,7 +37,7 @@
         <li>Not ideal for startups
         <li>Potential performance issues
         <li>Harder to debug if distributed tracing is not implemented 
-        <li>Async communication between microservices causes more issues. See [this](service_communication.md)
+        <li>Async communication between microservices causes more issues. See [Sync vs Async Communication](service_communication.md)
         </ul>
    </td>
 
