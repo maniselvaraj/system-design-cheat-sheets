@@ -29,7 +29,7 @@
 
 
    <td>
-        <ol>
+        <ul>
         <li>Network is a prime source of issues</li>
         <li>Distributed transaction is harder. Use 2 phased commit or Sagas.</li>
         <li>Distributed data management is hard</li>
@@ -37,8 +37,8 @@
         <li>Not ideal for startups</li>
         <li>Potential performance issues</li>
         <li>Harder to debug if distributed tracing is not implemented </li>
-        <li>Async communication between microservices causes more issues. See [Sync vs Async Communication](service_communication.md) </li>
-        </ol>
+        <li>Async communication between microservices causes more issues. See <a href="./service_communication.md">Sync vs Async Comm</a> </li>
+        </ul>
    </td>
 
   </tr>
