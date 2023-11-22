@@ -14,16 +14,17 @@
    
    <td>
         <ul>
-        <li>Loose coupling
+        <li>Loose coupling paradigm
+        <li>Flexible (?)
+        <li>Easier to learn the code base
+        <li>Parallel development
+        <li>Polygot favorable
         <li>Independent deploy and upgrade
         <li>Faster releases
+        <li>Easier maintenance
         <li>DB is hidden
         <li>Failure isolation
-        <li>Parallel development
-        <li>Easier to learn the code base
-        <li>Polygot favorable
-        <li> Flexible (?)
-        <li> Robust and resilient
+        <li>Robust and resilient
         </ul>
    </td>
 
@@ -32,12 +33,12 @@
         <ul>
         <li>Network is a prime source of issues</li>
         <li>Distributed transaction is harder. Use 2 phased commit or Sagas.</li>
-        <li>Distributed data management is hard</li>
-        <li>Scatter/gather data</li>
-        <li>Not ideal for startups</li>
+        <li>Distributed data management is hard. May require Scatter/gather data approach</li>
         <li>Potential performance issues</li>
         <li>Harder to debug if distributed tracing is not implemented </li>
         <li>Async communication between microservices causes more issues. See <a href="./service_communication.md">Sync vs Async Comm</a> </li>
+        <li>Not ideal for startups</li>
+        <li>Microservices modeled around team boundaries has pros and cons. For example, who owns what?</li>
         </ul>
    </td>
 
