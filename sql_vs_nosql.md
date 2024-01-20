@@ -13,8 +13,11 @@
   <tr>
    <td>Schema
    </td>
-   <td><strong>Schema-on-write</strong>
-   </td>
+   <td>
+      <li><strong>Schema-on-write</strong></li>
+      <li>RDBMS data model focuses on the structure of data and its relationships with other data. (source: AWS docs)</li>
+
+
    <td>
 <ul>
 
@@ -22,6 +25,7 @@
 
 <li>Schema-on-read is good if the collection does not all have the same structure for some reason i.e., data is heterogeneous.
 </li>
+<li>NoSQL data modeling focuses on access patterns, or how the application is going to consume the data, so it stores the data in a way that supports straightforward query operations. (source: AWS docs)</li>
 </ul>
    </td>
   </tr>
