@@ -140,7 +140,9 @@ Aim is to bring the nodes back up to date.
     1. Uses gossip protocol
     2. Cooperative propagation to disseminate information
 
-
+## Transactions across Datacenters by Ryan Barrett
+* Main deck: https://snarfed.org/transactions_across_datacenters_io.html
+* Summary of consistency across various scenarios. ![consistency](assets/consistency.png)
 
 
 [Replication](replication.md) | [Partitioning](partitioning.md) | [Transactions](transaction.md) | [Isolation](isolation.md) | [Consistency](consistency.md) | [Distributed Transactions](distributed_transactions.md) | [Consensus](consensus.md)
