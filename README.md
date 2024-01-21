@@ -3,7 +3,6 @@
 System design cheat sheets - A collection of notes that I gathered while reading popular books.
 
 System Design Basics
-
 * [Replication](replication.md)
 * [Partitioning](partitioning.md)
 * [Transactions](transaction.md)
@@ -19,6 +18,7 @@ System Design Concepts
 * [Microservices - Pros and Cons](microservices.md)
 * [How to approach a system design problem](SD_approach.md)
 
-Other resources
-
+References
+* Designing Data Intensive Applications by Martin Kleppmann
+* Database Internals by Alex Petrov
 * [Transactions across datacenters by Ryan Barrett](https://snarfed.org/transactions_across_datacenters_io.html)
