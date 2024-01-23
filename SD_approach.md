@@ -24,3 +24,22 @@
     1. Explore Db schema (depending on the problem)
     2. API design
     3. Address scalability. Always call out trade-offs when you scale.
+
+
+
+# System Design Trade-offs
+
+1. Time vs Space (as in algorithms)
+2. Latency vs throughput
+    1. Response time = latency + processing time
+    2. Throughput vs bandwidth
+    3. Example: more latency, increased queue in network, reduced packets are processed, leading to lower throughput
+3. Performance vs Scalability
+    1. Performance: Slow for even a single user
+    2. Scalability: Slow under load for users
+4. Consistency vs Availability: CAP
+5. PACELC
+    1. Nuanced version of CAP
+    2. In the case of network partitioning (P) in a distributed computer system, one has to choose between availability (A) and consistency (C) (as per the CAP theorem), but else (E), even when the system is running normally in the absence of partitions, one has to choose between latency (L) and consistency (C). 
+    3. If the system tries to provide for strong consistency, it has to do replication with synchronous communication and blocking to ensure all the read replicas receive the most recent write, waiting on the acknowledgement from all the replica nodes, adding to high latency. On the other hand, if the system does asynchronous replication without waiting for acknowledgment from all nodes, it will end up providing eventual consistency when the replica node has acknowledged the data mutation change for serving the requests. 
+    4. ![pacelc](assets/pacelc.png)

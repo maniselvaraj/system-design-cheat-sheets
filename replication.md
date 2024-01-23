@@ -18,20 +18,24 @@
 <li>Geolocated read (latency)
 </li> 
 </ul>
+
 <li>Availability
 <ul>
 <li>Failover is good for availability
-<li>2 datacenters (availability) 
+<li>2 datacenters (availability), DR and data resiliency 
 </li> 
 </ul>
-<li>Throughput
+
+<li>Scalability and Performance
+<ul>
 <li>Async replication is good for latency and throughput
+</li>
+</ul>
+
 <li>Eventual consistency in:
 <ul>
- 
-<li>master/slave
- 
-<li>Multi-master
+ <li>master/slave
+ <li>Multi-master
 </li> 
 </ul>
 

@@ -16,6 +16,7 @@ System Design Concepts
 * [SQL vs NoSQL](sql_vs_nosql.md)
 * [Sync vs Async Communication](service_communication.md)
 * [Microservices - Pros and Cons](microservices.md)
+* [Availability](availability.md)
 * [How to approach a system design problem](SD_approach.md)
 
 References

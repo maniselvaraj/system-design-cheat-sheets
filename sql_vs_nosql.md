@@ -10,6 +10,17 @@
    <td><strong>NoSQL</strong>
    </td>
   </tr>
+
+
+  <tr>
+   <td>CAP
+   </td>
+   <td>Always ACID (strong consistency). 
+   </td>
+   <td>Generally BASE (eventual consistency)
+   </td>
+  </tr>
+
   <tr>
    <td>Schema
    </td>
@@ -226,6 +237,23 @@
    <td>Use KV store in applications only when the application knows the K. Else this is a waste as the application needs to scan all the keys K. For ex. DynamoDB
    </td>
   </tr>
+ 
+ <tr>
+   <td>Availability
+   </td>
+   <td>   
+   </td>
+   <td>
+   <ul>
+   <li>Optimistic Replication: Dont wait for ack from all. Reduces latency and allows continued availability. Introuces temporary data inconsistency.
+   <li>Sloppy Quorum and Last Write Wins: Sloppy - A subset of replicas ack. Relaxed quorum leading to inconsistency. Inconsistency resolved by LWW.  
+   <li>Hinted Handoff: Temporary store write as hint. Deliver hint later to appropriate node. Prevents data  loss.
+   </li>
+   </ul>
+   </td>
+  </tr>
+ 
+
   <tr>
    <td>Security
    </td>
@@ -234,6 +262,7 @@
    <td>Non-existent. Left to higher layers to implement
    </td>
   </tr>
+ 
   <tr>
    <td>Data integrity
    </td>
