@@ -33,6 +33,7 @@
      enables teams to be autonomous.
   </td>
   <td>
+  Harder for new developer to understand end to end architecture without proper documentation. More unknowns outside of ones own service.
   </td>
   </tr>
 
@@ -66,6 +67,7 @@
      It enables the continuous delivery and deployment of large, complex applications.
   </td>
      <td>
+     Deploying features that span multiple services requires careful coordination.
      </td>
   </tr>
 
@@ -78,7 +80,6 @@
      * Distributed transaction is harder. Use 2 phased commit or Sagas. <br/>
      * Distributed data management is hard. May require Scatter/gather data approach. <br/>
      * Finding the right set of services is challenging. <br/>
-     * Deploying features that span multiple services requires careful coordination.
      </td>
   </tr>
 
