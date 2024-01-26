@@ -4,58 +4,98 @@
 
 <table>
   <tr>
-   <td><strong>Pros</strong>
-   </td>
-   <td><strong>Cons</strong>
-   </td>
+  <td>Context</td>
+   <td><strong>Pros</strong></td>
+   <td><strong>Cons</strong></td>
   </tr>
 
-  <tr>
-   
-   <td>
-        <ul>
-        <li>Loose coupling paradigm
-        <li>Flexible (?)
-        <li>Easier to learn the code base
-        <li>Parallel development
-        <li>Polygot favorable
-        <li>Faster releases
-        <li>Easier maintenance
-        <li>DB is hidden
-        <li>Failure isolation
-        <li>Robust and resilient
-<li>It enables the continuous delivery and deployment of large, complex applications.
-<li>Services are small and easily maintained.
-<li>Services are independently deployable.
-<li>Services are independently scalable.
-<li>enables teams to be autonomous.
-<li>It allows easy experimenting and adoption of new technologies.
-<li>It has better fault isolation.
-        </ul>
-   </td>
+
+  <tr>  
+  <td>Design</td>
+  <td>
+     * Loose coupling paradigm. <br/>
+     * Flexible (?) <br/>
+     * DB is hidden. 
+  </td>
+  <td>
+     * Not ideal for startups. <br/>
+     * Microservices modeled around team boundaries has pros and cons. For example, who owns what? <br/>
+     * Deciding when to adopt the microservice architecture is difficult.
+  </td>
+  </tr>
+
+  <tr>  
+  <td>Development</td>
+  <td>
+     * Easier to learn the code base. <br/>
+     * Parallel development.<br/>
+     * Polyglot favorable.<br/>
+     enables teams to be autonomous.
+  </td>
+  <td>
+  </td>
+  </tr>
 
 
-   <td>
-        <ul>
-        <li>Network is a prime source of issues</li>
-        <li>Distributed transaction is harder. Use 2 phased commit or Sagas.</li>
-        <li>Distributed data management is hard. May require Scatter/gather data approach</li>
-        <li>Potential performance issues</li>
-        <li>Harder to debug if distributed tracing is not implemented </li>
-        <li>Async communication between microservices causes more issues. See <a href="./service_communication.md">Sync vs Async Comm</a> </li>
-        <li>Not ideal for startups</li>
-        <li>Microservices modeled around team boundaries has pros and cons. For example, who owns what?</li>
+  <tr>  
+  <td>Testing/Release</td>
+  <td>
+     * Faster releases
+  </td>
+  <td>* Distributed systems are complex, which makes development, testing, and deployment difficult.
+  </td>
+  </tr>
 
-<li>Finding the right set of services is challenging.
-<li>Distributed systems are complex, which makes development, testing, and deployment difficult.
-<li>Deploying features that span multiple services requires careful coordination.
-<li>Deciding when to adopt the microservice architecture is difficult.
+  <tr>  
+  <td>Maintenance</td>
+  <td>
+     * Easier maintenance. <br/>
+     * Services are small and easily maintained.
+  </td>
+     <td>
+     * Harder to debug if distributed tracing is not implemented <br/>
+     * Network is a prime source of issues<br/>
+     * Async communication between microservices causes more issues. See Sync vs Async Comm <br/> 
+     </td>
+  </tr>
 
-        </ul>
-   </td>
+  <tr>  
+  <td>Deployment</td>
+  <td>
+     Services are independently deployable. <br/>
+     It enables the continuous delivery and deployment of large, complex applications.
+  </td>
+     <td>
+     </td>
+  </tr>
 
+  <tr>  
+  <td>Functionality</td>
+  <td>
+     It allows easy experimenting and adoption of new technologies.
+  </td>
+     <td>
+     * Distributed transaction is harder. Use 2 phased commit or Sagas. <br/>
+     * Distributed data management is hard. May require Scatter/gather data approach. <br/>
+     * Finding the right set of services is challenging. <br/>
+     * Deploying features that span multiple services requires careful coordination.
+     </td>
+  </tr>
+
+  <tr>  
+  <td>Scalability, Fault Tolerance, Performance</td>
+  <td>
+     Better Failure/Fault isolation. </br>
+     Robust and resilient. </br>
+     Services are independently scalable.
+  </td>
+     <td>
+     Potential performance issues.
+     </td>
   </tr>
 </table>
+
+
 
 
 # Monolith
