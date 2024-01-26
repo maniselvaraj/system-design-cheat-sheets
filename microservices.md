@@ -19,12 +19,18 @@
         <li>Easier to learn the code base
         <li>Parallel development
         <li>Polygot favorable
-        <li>Independent deploy and upgrade
         <li>Faster releases
         <li>Easier maintenance
         <li>DB is hidden
         <li>Failure isolation
         <li>Robust and resilient
+<li>It enables the continuous delivery and deployment of large, complex applications.
+<li>Services are small and easily maintained.
+<li>Services are independently deployable.
+<li>Services are independently scalable.
+<li>enables teams to be autonomous.
+<li>It allows easy experimenting and adoption of new technologies.
+<li>It has better fault isolation.
         </ul>
    </td>
 
@@ -39,6 +45,12 @@
         <li>Async communication between microservices causes more issues. See <a href="./service_communication.md">Sync vs Async Comm</a> </li>
         <li>Not ideal for startups</li>
         <li>Microservices modeled around team boundaries has pros and cons. For example, who owns what?</li>
+
+<li>Finding the right set of services is challenging.
+<li>Distributed systems are complex, which makes development, testing, and deployment difficult.
+<li>Deploying features that span multiple services requires careful coordination.
+<li>Deciding when to adopt the microservice architecture is difficult.
+
         </ul>
    </td>
 
