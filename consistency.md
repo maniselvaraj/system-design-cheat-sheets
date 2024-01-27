@@ -33,7 +33,7 @@
   </tr>
 </table>
 
-## Consistency Techniques
+## Consistency Patterns/Techniques
 Techniques in distributed systems to ensure <b>data</b> consistency:
 1. Data replication
 2. Consensus protocol

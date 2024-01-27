@@ -103,8 +103,6 @@
 
 ## How is replication achieved?
 
-
-
 * Statement based
 * Write ahead logs (WAL)
     * storage engine logs
@@ -115,7 +113,6 @@
 
 
 ## Situations and Solutions for Replication Lag Issues
-
 
 
 1. Read-after-write consistency (RAW)

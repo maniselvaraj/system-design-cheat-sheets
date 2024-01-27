@@ -43,3 +43,45 @@
     2. In the case of network partitioning (P) in a distributed computer system, one has to choose between availability (A) and consistency (C) (as per the CAP theorem), but else (E), even when the system is running normally in the absence of partitions, one has to choose between latency (L) and consistency (C). 
     3. If the system tries to provide for strong consistency, it has to do replication with synchronous communication and blocking to ensure all the read replicas receive the most recent write, waiting on the acknowledgement from all the replica nodes, adding to high latency. On the other hand, if the system does asynchronous replication without waiting for acknowledgment from all nodes, it will end up providing eventual consistency when the replica node has acknowledged the data mutation change for serving the requests. 
     4. ![pacelc](assets/pacelc.png)
+
+
+
+
+# System Design Cheat Sheet from ByteByteGo
+![sd_pointers](assets/bytebytego_sd.gif)
+
+
+# Architectural Patterns and Techniques
+
+<table>
+  <tr>
+   <td><strong>Context</strong></td>
+   <td><strong>Application</strong></td>
+   <td><strong>Data</strong></td>
+  </tr>
+
+<tr>
+<td>Scalability</td>
+<td>Load balance. Scalability testing for load spikes</td>
+<td>Caching, Partioning, Sharding</td>
+</tr>
+
+<tr>
+<td>Reliability</td>
+<td>Long running Soak tests to detect unwanted behavior over time like memory leaks</td>
+<td>abc</td>
+</tr>
+
+<tr>
+<td>Availability</td>
+<td>Redundancy, Fault tolerance</td>
+<td>Replication</td>
+</tr>
+
+<tr>
+<td>Performance</td>
+<td>FE, BE approaches. Cache, minify, zip, CDN, bundle, Parallel calls, async calls, avoid locks</td>
+<td>Shard/Partition, Avoid scatter gather, Cache</td>
+</tr>
+
+</table>
