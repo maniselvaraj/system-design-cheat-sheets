@@ -69,13 +69,13 @@
 <tr>
 <td>Reliability</td>
 <td>Long running Soak tests to detect unwanted behavior over time like memory leaks</td>
-<td>abc</td>
+<td></td>
 </tr>
 
 <tr>
 <td>Availability</td>
 <td>Redundancy, Fault tolerance</td>
-<td>Replication</td>
+<td>Replication, Checkpointing</td>
 </tr>
 
 <tr>
