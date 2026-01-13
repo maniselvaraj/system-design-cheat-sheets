@@ -21,39 +21,18 @@ Organizations adopt multi-region architectures for three primary reasons:
 
 ## Data Replication Strategies
 
-### Asynchronous Replication (Eventual Consistency)
-- **Characteristics**: Data replicated with lag (seconds to minutes)
-- **Pros**: Lower cost, better performance, no cross-region latency impact
-- **Cons**: Potential data loss during failover (non-zero RPO)
-- **Services**: Aurora Global Database (default), DynamoDB Global Tables, S3 Cross-Region Replication
-- **Best for**: Read-heavy workloads, applications tolerating eventual consistency
-
-### Synchronous Replication (Strong Consistency)
-- **Characteristics**: Data committed to multiple regions before acknowledging write
-- **Pros**: Zero or near-zero RPO, strong consistency guarantees
-- **Cons**: Higher cost, performance impact due to cross-region latency
-- **Services**: Aurora Global Database with Write Forwarding (GLOBAL mode), DynamoDB with Strong Consistency reads
-- **Best for**: Financial transactions, regulatory compliance, mission-critical data
+| Replication Type | Characteristics | Pros | Cons | AWS Services | Best For |
+|------------------|-----------------|------|------|--------------|----------|
+| **Asynchronous Replication<br>(Eventual Consistency)** | Data replicated with lag (seconds to minutes) | - Lower cost<br>- Better performance<br>- No cross-region latency impact | - Potential data loss during failover (non-zero RPO)<br>- Eventual consistency only | - Aurora Global Database (default)<br>- DynamoDB Global Tables<br>- S3 Cross-Region Replication | - Read-heavy workloads<br>- Applications tolerating eventual consistency |
+| **Synchronous Replication<br>(Strong Consistency)** | Data committed to multiple regions before acknowledging write | - Zero or near-zero RPO<br>- Strong consistency guarantees | - Higher cost<br>- Performance impact due to cross-region latency | - Aurora Global Database with Write Forwarding (GLOBAL mode)<br>- DynamoDB with Strong Consistency reads | - Financial transactions<br>- Regulatory compliance<br>- Mission-critical data |
 
 ## Data Access Pattern Strategies
 
-### 1. Read Local, Write Global
-- Writes directed to primary region
-- Reads served from local region (eventual consistency)
-- **Best for**: Read-heavy applications (social media, content distribution)
-- **Services**: Aurora Global Database, DynamoDB Global Tables
-
-### 2. Multi-Region Cell Approach
-- Data partitioned/sharded across regions by customer, geography, or tenant
-- Each region owns specific data subset
-- **Best for**: Multi-tenant SaaS, applications with natural data partitioning
-- **Complexity**: Requires routing layer and data distribution logic
-
-### 3. Active-Active with Conflict Resolution
-- Writes accepted in all regions
-- Conflicts resolved using last-writer-wins or custom logic
-- **Best for**: Collaborative applications, shopping carts
-- **Services**: DynamoDB Global Tables (last-writer-wins)
+| Strategy | Description | Best For | AWS Services | Complexity/Notes |
+|----------|-------------|----------|--------------|------------------|
+| **Read Local, Write Global** | - Writes directed to primary region<br>- Reads served from local region (eventual consistency) | Read-heavy applications (social media, content distribution) | - Aurora Global Database<br>- DynamoDB Global Tables | Low complexity, most common pattern |
+| **Multi-Region Cell Approach** | - Data partitioned/sharded across regions by customer, geography, or tenant<br>- Each region owns specific data subset | Multi-tenant SaaS, applications with natural data partitioning | Any database with proper sharding logic | Requires routing layer and data distribution logic |
+| **Active-Active with Conflict Resolution** | - Writes accepted in all regions<br>- Conflicts resolved using last-writer-wins or custom logic | Collaborative applications, shopping carts | DynamoDB Global Tables (last-writer-wins) | Requires conflict resolution strategy |
 
 ## Resilience Tiering Framework
 
@@ -65,50 +44,20 @@ Organizations adopt multi-region architectures for three primary reasons:
 
 ## The Four Multi-Region Fundamentals
 
-### 1. Requirements
-- Define availability, latency, and compliance requirements
-- Establish RTO and RPO targets for each application tier
-- Consider cost vs. resilience trade-offs
-- Map requirements to resilience tiers (Platinum, Gold, Silver)
-
-### 2. Data
-- Identify data types: transactional, analytical, configuration, user-generated
-- Determine data replication strategy (sync vs. async)
-- Plan for data consistency models
-- Consider data residency and sovereignty requirements
-- Choose appropriate AWS services based on data characteristics
-
-### 3. Dependencies
-- Map all dependencies: internal services, external APIs, third-party services
-- Ensure dependencies are also multi-region capable
-- Implement graceful degradation for unavailable dependencies
-- Consider DNS, IAM, and control plane dependencies
-- Test dependency failures in each region
-
-### 4. Operational Readiness
-- Implement comprehensive monitoring and alerting across regions
-- Establish runbooks and automated failover procedures
-- Conduct regular disaster recovery drills
-- Train teams on multi-region operations
-- Implement chaos engineering practices
-- Plan for failback procedures
+| Fundamental | Key Activities | Critical Considerations |
+|-------------|----------------|------------------------|
+| **1. Requirements** | - Define availability, latency, and compliance requirements<br>- Establish RTO and RPO targets for each application tier<br>- Consider cost vs. resilience trade-offs<br>- Map requirements to resilience tiers (Platinum, Gold, Silver) | Align business requirements with technical capabilities and budget constraints |
+| **2. Data** | - Identify data types: transactional, analytical, configuration, user-generated<br>- Determine data replication strategy (sync vs. async)<br>- Plan for data consistency models<br>- Consider data residency and sovereignty requirements<br>- Choose appropriate AWS services based on data characteristics | Data is the most critical aspect; wrong choices lead to compliance issues or data loss |
+| **3. Dependencies** | - Map all dependencies: internal services, external APIs, third-party services<br>- Ensure dependencies are also multi-region capable<br>- Implement graceful degradation for unavailable dependencies<br>- Consider DNS, IAM, and control plane dependencies<br>- Test dependency failures in each region | Single-region dependencies break multi-region architecture; chain is only as strong as weakest link |
+| **4. Operational Readiness** | - Implement comprehensive monitoring and alerting across regions<br>- Establish runbooks and automated failover procedures<br>- Conduct regular disaster recovery drills<br>- Train teams on multi-region operations<br>- Implement chaos engineering practices<br>- Plan for failback procedures | Untested failover procedures will fail during actual incidents; practice is essential |
 
 ## Organizational Failover Strategies
 
-### Automated Failover
-- **Pros**: Fastest RTO, no human intervention required
-- **Cons**: Risk of cascading failures, requires sophisticated health checks
-- **Best for**: Applications with strict RTO requirements, well-tested systems
-
-### Manual Failover
-- **Pros**: Human validation before failover, prevents false positives
-- **Cons**: Slower RTO, requires 24/7 on-call staff
-- **Best for**: Critical systems where incorrect failover has severe consequences
-
-### Hybrid Approach
-- Automated detection with manual approval
-- Time-based auto-failover (if not acknowledged within X minutes)
-- **Best for**: Most production systems balancing speed and safety
+| Strategy | Description | Pros | Cons | Best For |
+|----------|-------------|------|------|----------|
+| **Automated Failover** | System automatically detects failures and initiates failover without human intervention | - Fastest RTO<br>- No human intervention required<br>- Consistent execution | - Risk of cascading failures<br>- Requires sophisticated health checks<br>- May failover on false positives | Applications with strict RTO requirements, well-tested systems |
+| **Manual Failover** | Human operators validate issue and manually trigger failover | - Human validation before failover<br>- Prevents false positives<br>- Controlled decision-making | - Slower RTO<br>- Requires 24/7 on-call staff<br>- Human error possible | Critical systems where incorrect failover has severe consequences |
+| **Hybrid Approach** | - Automated detection with manual approval<br>- Time-based auto-failover (if not acknowledged within X minutes) | - Balances speed and safety<br>- Human oversight with automation backup<br>- Prevents prolonged outages | - More complex to implement<br>- Requires clear escalation procedures | Most production systems balancing speed and safety |
 
 ## Key Multi-Region AWS Services
 
