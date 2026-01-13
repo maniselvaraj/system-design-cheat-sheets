@@ -150,6 +150,8 @@ DEFAULT → Single-region with backup/restore
 
 ---
 
-**Source**: AWS Prescriptive Guidance - Multi-Region Fundamentals
+**Source**: 
+- [AWS Prescriptive Guidance - Multi-Region Fundamentals](https://docs.aws.amazon.com/prescriptive-guidance/latest/aws-multi-region-fundamentals)
+- [AWS Multi-region Capabilities](https://repost.aws/articles/AR02pJIdoARYKX6Rhkdra-Zg/aws-multi-region-capabilities)
 
 **Last Updated**: Based on document review January 2026
